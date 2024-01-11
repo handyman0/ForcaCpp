@@ -2,11 +2,29 @@
 #include <stdlib.h>
 #include <iostream>
 #include <string>
+#include <time.h>
 
 using namespace std;
 
 void limpatela(){
 	system("clear");
+}
+
+string retornaPalavraAleatoria(){
+
+	string palavras[3] = {"Abacaxi", "Manga", "Morango"};
+	
+	int indiceAleatorio = rand() % 3;
+
+	return palavras[indiceAleatorio];
+}
+
+void jogarSozinho() {
+	
+	string palavra = retornaPalavraAleatoria();
+	
+	cout << "A palavra secreta e: " << palavra;
+
 }
 
 void menuInicial(){
@@ -24,6 +42,7 @@ void menuInicial(){
 		switch(opcao){
 			case 1:
 				cout << "Jogo Iniciado";
+				jogarSozinho();
 				break;
 			case 2:
 				cout << "Informações do Jogo";
@@ -37,7 +56,7 @@ void menuInicial(){
 }
 
 int main(){
-	
+	srand( (unsigned)time(NULL));	
 	menuInicial();	
 	return 0;
 }
